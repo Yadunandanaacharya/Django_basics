@@ -1,0 +1,14 @@
+Web application  framework built in python: django
+1) user authentication
+2) templating language
+3) routing etc..
+Allows to create dynamic web apps using python
+
+framework is collection of modules, prewritten code, a particular task
+
+We have ""client(browser)"" we want to request in this browser to particular page
+example facebook.com/profile this website is being powered by django on the 
+""Server"". Django receives this request.
+Server has 1)django framework 2) python code 3) database 4) html templates
+
+When request coems you need to communicate with database django helps in this

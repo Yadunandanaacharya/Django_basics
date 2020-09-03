@@ -1,0 +1,12 @@
+We'll see 2 djangoprojects, inside one is base app of our project, it's like 
+root app.
+
+manage.py you won't chaneg anything in that
+
+Always remeber and check to set path and run server Always
+
+set path command : cd
+to go to previous directory: cd ..
+cls : clear screen 
+
+To get out of the server press ctrl+c
