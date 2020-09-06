@@ -1,0 +1,57 @@
+Template tags
+Showing list of articles we have created in front end page.
+Using models.py I have created Article and instantiated with some data.
+
+First I need to change views.py inside articles app, because it is controlling
+when user enters /articles in browser.
+
+Import Article class to views.py file
+
+article1 = Article.objects.all() with this I have created object for Article model samething
+I'll do in views.py aslo
+
+this grabs all of the records from this Article data base tabel
+use "order_by" this lets us order the records or data in good order.
+If 5,4, 6,1 is there it will rder them as 1,4,5,6 
+It's optional to use, you can leave it.
+
+Here I'm order with date, so output will be in date order.
+
+Now we need to send Article objectt that is article1 to render.
+Output data of article1 to article_list.html template.
+means whatever data you'll create in Article model it should pass through
+article_list.html template and displayed in web page.
+
+I need to add third parameter to render.
+With dictionary property or id is 'art' that's what we send.
+You can put any name in property like art that is you wan to send
+
+next go to templates inside articles and go to article_list.html
+
+Template text refers to output some of python code inside article_list template.
+ Samething you had done in Nodejs.
+
+ inside article_list create <div class="articles"></div> which is gonna have 
+ list of articles
+ next I'll create for loop which will go through all of articles using template text
+
+  Template texts:
+  {% write python code Here %}
+  if I need to output data then I need to use {{ outputting data }}
+
+  {% for iarts in art %} here art is property I have created in views.py which is 
+  key in dictionary
+  With each iteration we will have access to article
+
+<div class="iarts">
+    <h2><a href="#"></a></h2>
+</div>
+mentioned href with # because it will be like link in web page, when you click
+on article it will go to detail of that article
+
+ <h2><a href="#">{{iarts.title}}</a></h2>
+ Outputting iarts.title where title is like name of that article
+
+article1 = Article.objects.all().order_by('date')
+Type this line correctly I have typed like
+Article.objects.all('date') so got error.

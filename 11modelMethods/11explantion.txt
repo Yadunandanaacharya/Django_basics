@@ -1,0 +1,33 @@
+Here we have created new article in web page using admin page and when 
+I'll go to /articles that time that huge text will diplay with testarticle
+
+Example:
+Testarticle
+Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Tempora deleniti, nesciunt tenetur neque beatae aspernatur 
+iste aperiam eligendi dicta nostrum. Cupiditate nihil debitis
+ dignissimos facilis perferendis aliquam culpa neque deserunt?
+
+ Now instead displaying all texts if I want to display only 10 texts but 
+ when I'll click on on testarticle it will display all texts
+
+ To do I need to create method inside Article
+ Doing like snippets.
+
+  def snippet(self):
+        return self.body
+
+Using self.body because in body all texts will be stored
+
+self.body[:10] only 10 texts will be displayed.
+
+Now in article_list.html template instead of outputting iarts.body I will
+output "snippet"
+<p>{{iarts.snippet}}</p>
+
+def snippet(self):
+        return self.body[:60] + '...'
+
+Imporatnt error if you put 10 in self.body[:60] + '...' 
+either you moght get error or it will show full text.
+So use some good number check with that number also.

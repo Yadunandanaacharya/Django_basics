@@ -1,0 +1,36 @@
+It's not normal in serving static file in django.
+In nodejs it was very easy to serve static files through ejs or pug template engines.
+
+static files are like imgae files, css or javascript files that we can send it 
+to the client in djando serving static file is not simple
+Save or give path of that image in html template this is not gonna work
+
+We have to explicitly set static images inside our project and in our case 
+we need to tell django to save our images.
+
+While working for production server we would not let django to save our images
+it's unofficial, we would another service AWS   
+
+In debug mode only we are saving static file.
+
+We need to import 
+staticfiles_urlpatterns this thing lets us append to the urlpatterns django
+can handle the serving of the static files 
+
+staticfiles_urlpatterns this will check first of all in if we are in debug mode,
+if we are in debug mode 
+
+next step is in settings.py file go to bottom there you'll see about 
+staticURl which addresses to find static file. Example if I want to find style.css 
+file then I'll go to localhost:8000/static/style.css you can change path also
+
+Djano doesn't know where to find static file. For that we are gonna add 
+new property called STATICFILE_DIRS = ( os.path.join(BASE_DIR),'assets)
+BASE_DIR OUR djangopath directory, assets is folder we need to create
+
+in settings:
+STATICFILES_DIRS = ( 
+    os.path.join(BASE_DIR,'assets'),
+    )
+
+comma is very very important  

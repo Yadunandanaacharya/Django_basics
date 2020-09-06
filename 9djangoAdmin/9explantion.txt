@@ -1,0 +1,43 @@
+Now I know how to interact with database using django ORM
+
+Admin area is area of site admins to control the content of the website, all the
+contents or databases
+
+We can control instances of models or databses.
+
+ When you run server and go to browser type: http://127.0.0.1:8000/admin
+ You'll get login page
+When you enter you'll get error. Because that username and password 
+does not exist there.
+
+Now I'll create cp user means createsuperuser. Do this by using 
+python manage.py createsuperuser
+
+superuser has access to this admin area.
+
+(leave blank to use 'yadua') since I'm using it I didn't type username
+username: yadua
+password: text1234
+
+->runserver ->go to browser  -> admin enter details yu'll login to django admin page
+for superuser green right will be there in admin page
+not for normal user
+
+IMP:
+Here in django admin page we can't see article: because we have not set django 
+that we want article to appear in admin area. We do need to do that to appear.
+
+->go to admin.py 
+-> register your Article model Here
+from .models import Article
+. to tell from current directory.
+
+->admin.site.register()
+This is we're telling django to register something on the admin site. 
+
+Now django knows in admin section we want to see Article, when you open admin in browser
+you'll see Article, where I had created 2 objects with 2 articles.
+
+""	My name is Yadu
+	Hello, world"" shwoing these things in browser, now if you remove __str__
+    function in models.py you'll see only Article.objects

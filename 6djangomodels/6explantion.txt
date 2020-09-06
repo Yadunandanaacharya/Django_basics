@@ -1,0 +1,36 @@
+Start working with data, blog is collection  of articles, which 
+is data
+
+Models: Models in django represents  a table  in database.
+Each type of data we have (e.g. Articles, users) is represented by its own model.
+Each model maps to single table in a database.
+
+In the code:
+ex: class Articles():
+        title = Models.CharField()
+        body = Models.textfiles()
+
+In the database:
+id title body
+1   hai  helo
+2   baa  bell
+
+We can also use django ORM to interact with database.
+
+Model is represented by class in django.
+
+class Article(models.Model):
+this class Article will be inherited from models.Model, models is inbuilt in
+django we're inheriting some basic functionality, we'll have title and body
+inside Article class, date
+
+title is small amount of text
+We'll use charfield: small to large sized strings
+
+slug = models.SlugField() find this in documentation
+https://docs.djangoproject.com/en/3.1/topics/db/models/
+
+TextField(): in here you can put input field dropdown field
+
+date = models.DateTimeField(auto_now=True)
+Here automatically populate current time to date field.

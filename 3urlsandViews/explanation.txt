@@ -1,0 +1,8 @@
+Browser------->urls.py------->view.py------->Browser
+
+We're in Browser, we go to website, make aa request to /about url, we expect
+to return about page in Browser, 
+
+job of urls.py file in django is look at that
+requested url, and deciding which function to fire in django code within views.py
+file

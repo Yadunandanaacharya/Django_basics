@@ -1,0 +1,80 @@
+Now database knows to create table for this model Article
+
+ORM bridges the gap b/w code and the database and it's built in to django so
+we can use it interact with database   using the model
+
+We can do things like save instance of the model or retrieve model from the database
+that kind of things
+ 
+Since we are testing this models we are not gonna do this inside code, instead we
+put an interactive shell
+
+-> go to current directory
+-> python manage.py shell
+-> above will create an empty shell in command prompt
+-> from articles.models import Article
+-> with (InteractiveConsole) we can write django code to interact with database
+
+-> if you type Article
+Article
+<class 'articles.models.Article'>
+
+-> Article.objects.all()
+<QuerySet []>
+returns empyt Queryset because we have not created any article
+
+How to create a new article or instance of the model Article class.
+variable = Article()
+
+->>>> variable
+<Article: Article object (None)>
+
+>>> variable.title = 'Hello, world' 
+>>> variable
+<Article: Article object (None)>
+>>> variable.title                 
+'Hello, world'
+
+How to save this title data to the database.
+using variable.save()
+
+Retriving article from database table
+Article.objects.all()
+here Article model is referring to database tabel
+
+>>> Article.objects.all()
+<QuerySet [<Article: Article object (1)>]>
+Shows 1 object in Article.  
+if 5 objects will be there it will return 5.
+
+If you want to get data of first object
+>>> Article.objects.all()[0].title
+'Hello, world'
+
+used title to retrieve exact one
+So here ORM is all above stuffs like Article.objects.all() and all 
+
+Now in models.py we'll create function using built in module, which defines
+how an article is going to look in admin section also in shell
+
+Because if we crate many objects in shell, then all of them printed
+in signle row like Article.objects many times
+
+But if want only to print string hello world, or other directly we'll
+use __str__(self) function
+
+IMPORTANT: TO EXIT INTERACTIVE SHELL ctrl+z
+save above function
+
+from articles.models import Article
+>>> Article.objects.all()               
+<QuerySet [<Article: Hello, world>]>
+
+Now it's printed Hellow, world
+
+save all objects you'll create in shell
+
+>>> article2.title = 'My name is Yadu'
+>>> article2.save()      
+>>> Article.objects.all()
+<QuerySet [<Article: Hello, world>, <Article: My name is Yadu>]>

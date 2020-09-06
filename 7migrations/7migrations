@@ -1,0 +1,55 @@
+In previous things you have created database models: we created model to map the
+model to database. We can cretae instances of the model save that in a database
+
+But database does not really kow about our model, it doesn't know about article table.
+We've not made connection here. That's what Migrations is about.
+
+when we create a model we need to migrate that model to database, then database
+knows to store the table and columns in it.
+
+When you run server you'll get message :
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+September 05, 2020 - 09:51:01
+
+python manage.py migrate
+When you'll do this, django will store all models in database with respective table
+and columns.
+
+Before we'll migrate we need to create migration file
+migration file tracks changes you make to model.
+
+Due to this we'll make changes to author and thumnail field later
+to check migration
+
+You'll create migrstions with command
+python manage.py migrations
+this will create migration folder inside articles app.
+
+below things are by default created inside migration folder 00001_initial.py
+""""
+migrations.CreateModel(
+            name='Article',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=100)),
+                ('slug', models.SlugField()),
+                ('body', models.TextField()),
+                ('date', models.DateTimeField(auto_now=True)),
+            ],
+"""""
+Here you can see django automatically adds the id field, it knows that these are
+all things we want in our table, so 
+when we run 'python manage.py migrate' 
+this gonna mirror this to database table to articles
+
+Run -> python manage.py migrate
+Output: Apply all migrations: admin, articles, auth, contenttypes, sessions
+Running migrations:
+  Applying articles.0001_initial... OK 
+
+So everytime we make a model, make changes to model we're gonna have to do
+same 2 steps  , run makemigrations and run migrate 
+
+python manage.py makemigrations
+python manage.py migrate

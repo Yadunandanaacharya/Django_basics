@@ -1,0 +1,59 @@
+To send html page to browser you need to create html "templates" directory inside
+the root directory 
+
+url(r'^admin/', admin.site.urls),
+    url(r'^about/$', views.about),
+    url(r'^$/', views.homepage),
+]
+
+I missed typing $ symbol after about so I was geting error in homepage.
+Be careful know why are you doing it.
+
+^ this is used to match the starting of the line
+$ this is used to match the end of the line.
+
+The path method is designed to perform matches against exact strings, 
+whereas the re_path method is designed to perform matches against patterned 
+strings based on regular expressions.
+
+url uses regular expressions    
+
+Reference: https://www.webforefront.com/django/regexpdjangourls.html
+
+strings prefixed with r'' (a.k.a. raw strings)
+
+Many conditions are there before using r'^about/' and r'^about/index', there
+is difference in matching between these two pattersn    
+
+
+from django.urls import re_path
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    re_path(r'^about/index',TemplateView.as_view(template_name='index.html')),
+    re_path(r'^about/',TemplateView.as_view(template_name='about.html')),
+]
+
+django.urls.path was created for simplicity. Prior to Django 2.0, the 
+only way to define urls paths was through regular expressions and the
+ django.conf.urls.url method, something that created an unnecessary
+  hurdle for newcomers. Therefore the existence of both django.urls.path
+   and django.urls.re_path is rooted in Django's past, with the former
+    designed to welcome newcomers and the latter designed to support more
+     powerful url patterns & Django old-timers accustomed to defining url
+      paths with regular expressions.
+
+
+def about(request):
+    render(request,'homepage.html')
+first parameter will be request, next template present inside templates folder
+
+above doesnot work since we need to mention templates to consider inside settings.
+
+settings->TEMPLATES->'DIRS':['templates']
+if you do like above django wil look for html files inside templates directory 
+inside settings
+
+Got this error:
+The view djangoprojects.views.homepage didn't return an HttpResponse object. It returned None instead.
+When I didn't use return in homepage function in views.py file.

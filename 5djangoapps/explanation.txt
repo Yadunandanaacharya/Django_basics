@@ -1,0 +1,52 @@
+                    djangoprojects
+djangoprojects app          article app                account app
+urls.py                   urls.py                   urls.py
+                           views.py                 views.py 
+                           /templates                /templates
+
+here djangoprojects is root app inside djangoprojects ,  created 2 apps
+When we biuld django application we split up into mini apps
+
+If we want to create a blog, article app controls different articles
+
+When we create article app inside views.py file is there, where django says that
+python wants to have views.py inside each app, but it doesn't have urls.py app
+
+Now we need to cretae template article_list where will we create we can't create
+in "templates" it's like global template, but will cretae inside article app. 
+
+So create templates folder inside article app
+inside templates folder create same name folder article, this creating article 
+folder inside templates is kind of namespacing.
+Above is because if you create another html file named about.html file inside
+article/templates-> here then django will get confused about which one to render
+when you want to render the home page or about.html  
+
+inside article/templates/article create article_list.html
+Rendering article_list.html file when article_list fuction will be fired in 
+views.py file
+
+def article_list(request):
+    return render(request,'article_list')
+we can;t do like above code
+
+def article_list(request):
+    return render(request,'article/article_list')
+When you do like this inside templates article will be there from there it will 
+fetch .
+
+register article app in settings.py also.
+
+When you exceute code djangoprojects will take precedence because you have not
+mentioned url of article in djangoprojects urls.py
+
+Use include function for doing above
+
+url(r'^article/$',include('article.urls))
+when someone goes to /article it will look into article.urls.py file
+
+I made a mistake by giving wrong path in views.py inside articles
+def article_list(request):
+    return render(request, 'articles/article_list.html')
+
+You need mention path of html template in views.py correctly.

@@ -10,3 +10,6 @@ to go to previous directory: cd ..
 cls : clear screen 
 
 To get out of the server press ctrl+c
+
+When we will run python manage.py runserver
+we will get db.sqlite3, django project will configure with sqlite
