@@ -1,0 +1,46 @@
+Here I will take that slug and with respect to that slug in database I will print
+content of that article.
+
+For hello world title to that title only will print content of that with respect
+ to slug
+
+In our article_list.html we have made link of title name with '#' symbol.
+So will output different url for different article 
+
+But here we need to output individual slug and its contenets
+We can do this by 'named-urls'
+
+now we have access to slug url
+We can't hardcode different urls here
+
+below means url for list    
+url(r'^$', views.article_list,name='list'): calling this link with list
+url(r'^(?P<slug>[\w-]+)/$',views.article_detail, name='detail'):
+above link as detail
+
+Now if I want to output this above urls in template, instead of hardcode I can
+just say use name='list'
+
+to test it go to base_layout
+
+
+we can assign url a name in urls.py file inside articles
+
+inside base_layout.html
+
+<h1><a href="{% url 'list' %}"></a></h1>
+make these changes in base_layout.html file under global template
+
+Using details in our template tag
+<h2><a href="{% url 'detail' slug=iarts.slug %}">{{iarts.title}}</a></h2>
+first mentioning url detail as it is in urls.py file
+next for each article we need to mention slug with above code
+
+Name spacing urls: Sometime django might get confused with details of author
+details of article to solve this confusion we'll use name spacing
+
+We'll do this in urls.py file
+we can make like articles:detail and authors:detail
+in both base_layout.html and article_list.html
+
+<h2><a href="{% url 'articles:detail' slug=iarts.slug %}">

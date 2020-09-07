@@ -34,3 +34,28 @@ STATICFILES_DIRS = (
     )
 
 comma is very very important  
+After everything done
+http://127.0.0.1:8000/static/style.css
+then above will display content of style.css
+body{
+    background: blue;
+}
+
+How to connect static file to templates inside article
+<title><Article></Article></title>
+    <link rel="stylesheet" href="/static/style.css">
+
+Now when you go to articles in browser it'll display with blue color
+
+But this method is hardcoding each and every time you need to mention path 
+of static file
+
+Better method is : loading static file in article_list.html
+{% load tic from staticfiles %}
+Mentioning this in top of html file.    
+With this each and evry time no need to mention static file paath in html template
+
+Above commnad of load will give error:
+https://www.bohubrihi.com/forums/django-forum/static-file-cant-upload/
+{% load static  %}
+so use this one

@@ -1,0 +1,34 @@
+Constructing article detail page: 
+Now we can do like when you will enter slug detail in browser url it will
+print respective slug in display    
+
+These above things are handled by views.py for article_detail, we'll receive a slug
+from the url
+http://127.0.0.1:8000/articles/Hello-world/
+
+then we are sending back slug to the browser
+
+Now I'll do like find based on article respective slug from databse.
+
+def article_detail(request,slug):
+    # return HttpResponse(slug)
+    artis = Article.objects.get(slug = slug)
+    return render(request,'articles/article_detail.html',{'article': artis})
+
+We will alter this function in views like this 
+article = Article.objects.get(slug = slug)
+slug =slug which we will get from article_detail function
+so this function will lokk for article in the databse
+now we can render a template and send that data to the template
+
+returnining request and  article_detail
+('articles/article_detail.html')
+
+third parameter is data we want to send
+
+by taking artis and sending it to article_detail.html so that we can output in
+browser
+
+create article_detail.html inside article
+
+In article_detail.html we'll use different div tags for styling purposes

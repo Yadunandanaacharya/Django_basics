@@ -1,0 +1,29 @@
+How extending templates work: 
+If we have 20 templates inside articles->templates->articles-> 25 html files
+
+For each html file we need to mention head body style.css reference section.
+So which is lot of work, not the best way of arranging templates
+
+Better way is extending base template, so will have base template which will have all
+of the global stuff, like head, load section, all of that goes to global base template
+
+then our individual template like article_list.html extends that base template
+
+Create base template inside djangoprojects->templates folder which is global template
+
+base_layout contains all basic stuffs, cut load to body section from article_list.html
+
+In base_layout Create div with class wrapper because that will be on every single
+template
+
+We can create various blocks and output those blocks inside this base template
+
+{% block content %}
+    {% endblock %}
+
+    it's like in this base_layout template this is where we want blcok code
+    content to go
+
+Now in our article_list template we need to say this is extending from base_layout template
+
+so base_layout template will consider content of article_list template as block.

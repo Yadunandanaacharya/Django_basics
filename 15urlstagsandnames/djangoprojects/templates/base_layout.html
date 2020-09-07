@@ -1,0 +1,16 @@
+{% load static  %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hai guys</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="wrapper"></div>
+    <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.png'"/></a></h1>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

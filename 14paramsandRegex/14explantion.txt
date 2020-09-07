@@ -1,0 +1,48 @@
+Url parameters and regex
+
+We're outputting different blogs through templates
+
+If I need to do like when I click on title link example
+"Hello my first article" it should go through explanatio of that title.
+
+For doing this we need to do some modifications in urls.py in articles app
+
+example: if I press in url of browser like 
+localhost:8000/articles/Hello-my-first-article 
+then it should display contents of
+that article
+
+under models.py we have slug if article name will be there like"hello this is my first article"
+then slug is like url of that article
+you need to mention spaces with '-' symbol
+
+title: "hello this is my first article"
+slug: "hello-this-is-my-first-article"
+
+To use slug as url we need to use something called, named-capturing-group
+
+url(r'',views.article_detail)
+adding this in urls.py under article
+we don't need to write /articles it's taken care by main urls.py
+
+Named_capturing_group: url(r'^(?p<slug>)')
+and we can pass slug to function in views.py
+
+url(r'^(?P<slug>)',views.article_detail), now we can send this to views as second
+parameter. So url in browser can be anything like hyphen or letter or number 
+
+url(r'^(?P<slug>[\w-]+)/$'  : \w for any letter number special character 
+                            - for hyphen
+                            + for any length of characters or letters
+                            /$ means for end
+        (?P<slug>[\w-]+)  : regular expression
+        To create named capturing group parenthesis question mark (?)
+        and inside <> inside angle bracket you can name it anything you want
+
+def article_detail(request,slug):
+    return HttpResponse(slug)
+if you do like this you will get error.
+
+http://127.0.0.1:8000/articles/Hello-world/
+When you type this url of browser browser will print Hello-world
+

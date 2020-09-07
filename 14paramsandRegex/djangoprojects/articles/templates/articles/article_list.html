@@ -1,5 +1,13 @@
-{% extends 'base_layout.html' %}
-{% block content %}
+{% load static  %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
     <h1>Welcome to our Article list</h1>
     <p>Here you can find many articles</p>
     <div class="articles">
@@ -11,4 +19,6 @@
             </div>
         {% endfor %}
     </div>
-{% endblock %}
+    
+</body>
+</html>
