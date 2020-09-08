@@ -11,11 +11,11 @@
     <h1>Welcome to our Article list</h1>
     <p>Here you can find many articles</p>
     <div class="articles">
-        {% for iarts in art %}
-            <div class="iarts">
-                <h2><a href="{% url 'articles:detail' slug=iarts.slug %}">{{iarts.title}}</a></h2>
-                <p>{{ iarts.snippet }}</p>
-                <p>{{ iarts.date }}</p>
+        {% for article  in articles %}
+            <div class="article">
+                <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></h2>
+                <p>{{ article.snippet }}</p>
+                <p>{{ article.date }}</p>
             </div>
         {% endfor %}
     </div>
