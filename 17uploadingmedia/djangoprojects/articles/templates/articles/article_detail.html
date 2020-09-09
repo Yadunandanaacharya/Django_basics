@@ -3,6 +3,7 @@
 {% block content %}
 <div class="article-detail">
     <div class="article_details">
+        <img src="{{article_details.thumbnail.url}}" />
         <h2>{{ article_details.title }}</h2>
         <p>{{ article_details.body }}</p>
         <p>{{ article_details.date }}</p>

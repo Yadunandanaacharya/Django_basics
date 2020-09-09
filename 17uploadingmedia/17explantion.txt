@@ -1,0 +1,49 @@
+Here I'm trying to upload some image or thumnail in article detail page.
+
+Step1:--Go to settings as you have uploaded or set static path file in settings, you need
+to set path for uploading media files in settings.
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+Adding this in settings.py
+
+Step2: adding this line in urlpatterns += static in urls.py in djangoprojects.
+Import things
+from django.contrib.static import static
+from django.conf import settings
+
+Because in settings.py file w ehave mentioned path of media file where it will
+be saved or where to look into
+So now passing MEDIA_ROOT and MEDIA_URL as parameters to static.
+"urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)"
+
+Step3: Adding thumnail field in models.py
+thumbnail = models.ImageField(default='default.png',blank=True)
+We are gonna give default.png in case if Image path given by us not detected by
+program.
+Even article doesn't have image default will upload default.png it will create folder
+for default.png 
+
+Step4: Every time you make changes to models you need to migrate that change.
+While doing makemigrations it will ask to install pillow
+
+Step5: Go to admin page in broser and upload some image using thumbnail
+But even after uploading image it won't be displayed in web page of  your article
+When you go to django->Media folder-> you ruploaded image will be there
+
+
+Step6:It does not show in web page Because we have not added it in html template
+Access thumbnail property on the article and then output in the template
+
+Step7: Go to article_detail add this 
+ <img src="{{article_details.thumb.url}}" alt="">
+ {{ }}= Because we are outputting some data
+ Whenever we are using image we have access to the url property, so thumb will
+ grab the url of the image from media file
+
+ Error:  <img src="{{article_details.thumbnail.url}}" />
+ I made mistake while typing thumbnail in article_detail.html Because
+ in models.py I have used variable as thumbnail but and in views.py
+ under article_detail you have used property as "article_details" same thing 
+ you need to use in article_detail.html
