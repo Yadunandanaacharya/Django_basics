@@ -1,0 +1,40 @@
+IMPORTANT: Every time YOU CREATE A NEW FOLDER THAT TIME CLOSE ALL PREVIOUS FILES.
+oNCE i HAVE TYPED SOME LINES IN 25 FOLDER AND TYPED SOMETHING IN 27 FOLDER FILES
+sO I WAS NOT GETTING REQURIRED OUTPUT.
+
+
+sAVING article to the database
+For each article I have not mentioned author name of each article and 
+I'm not even storing username in the database
+
+In themodel we have 5 tags, but I'm not storing author, saving information 
+where who's logged in who's created this article so that we can output 
+that data associated with article, Authors and Users.
+
+One way to link an article with Author is with "Foreign Key"
+
+Foreign Key is a way to associate  record from one model example in our case article
+model, with a record from another model in our case user model.
+So we will associate article with User
+
+1) open models.py add 
+from django.contrib.auth.models import User
+importing user
+then I'll associate "User" model with "author" field.
+Now author field will be user
+
+So we need to makemigrations after doing changes
+but before that I'll delete all articles because None of them have Author
+information.
+Then I'll do makemigrations
+
+This Foreign key is not working giving error about
+null constraint.
+
+
+2)Next inside views.py in articles you need to save user details in database
+storing it in variable called instance
+Next attach author to this instance 
+
+3) We've access to user with request, whenever user enter details article_create
+function will be fired
