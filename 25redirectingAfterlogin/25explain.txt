@@ -1,0 +1,51 @@
+When we go to /articles/create if I'm not logged in I'll redirected to login
+page, if I then press on login it doesn't take me to the article create page.
+Instead it shows us article lists.
+
+Now notice that url when you press /articles/create/
+::http://127.0.0.1:8000/accounts/login/?next=/articles/create/
+
+Above has login url after that it has query string, which is denoted by 
+?
+then we have variable parameter called next 
+after that =/articles
+
+?next= : Here is only where user wants to visit.
+
+1) When we render login page, that is in login_view function.
+when we return this render, we send login.html also we'll send request
+So above url is get request.
+request object I have passed inside render is accessible inside any of the template.
+
+2) Now check whether request object is accessible in login template inside accounts.
+By code
+{% if request.GET.next %}
+Next I'll output a input field
+Where input field will be hidden, user can't see it. Name will be next 
+<input type="hidden" name='next' value="{{request.GET.next}}">
+/articles/create will be value of {{request.GET.next}}
+
+We're doing 2) because we're checking create parameter exists, when it does
+then we'll redirect wherever next is there, so we'll check whether next is there on 
+login page if it is there then we'll output hidden where name is next and value is 
+request.GET.next, this 
+because when we make a post request through: <input type="submit" value="Login">
+then :'request.GET.next': will also come along with post request
+Then we can access that information inside post request of login_view function
+present in views.py in accounts.
+
+3) So Instead of redirecting to articles list we can check this next property
+exists and if it exists then we can send them value.
+
+Inside views.py in accounts 
+if 'next' in request.POST:
+next parameter occurs in request.POST, then redirect them to next
+
+return redirect(request.POST.get('next'))
+It's getting next from login.html and it would be redirecting to 
+/articles/create
+
+Now inside login page if you click one login
+it'll go to create page, not to articles list page. 
+
+But if you type url in browser as /accounts/login it will go to articles list page.

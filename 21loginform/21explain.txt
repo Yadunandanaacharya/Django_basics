@@ -1,0 +1,53 @@
+Create login form
+I have created url pattern for signup in urls.py inside accounts.
+I'll make anothe rfor login
+
+1) created  url(r'^login/$',views.login_view,name='login'),
+login url 
+
+2) create login_view function in views.py
+Same as the signup_view in this login could be also post request to login
+or get request to login
+If I enter url in browser like "localhost:8000/accounts/login" this could be 
+get request.
+After filling the form if I press login that will be post request
+Do same like signup_view if request is post do something else do other thing.
+
+3) For get request django has built in login with Authentication form
+render you need to put outside the else
+
+4)Create login.html file inside accounts/templates/accounts
+change action: action="/accounts/login/"
+
+So instead of hardcoding we can use {} brackest
+action="{% url 'accounts:login' %}" anyways url will be taken from urls.py
+
+5) Change in[put type: <input type="submit" value="Login">]
+
+6) Error: else:
+       ^
+IndentationError: expected an indented block
+
+7) Msiatke:  return render(request,'accounts/signup.html',{'forms_are':form})
+Under login functio inside views.py inside render I had to put login.html
+not signup.html so in web page title was signup
+
+8)With post request in login we'll take user details, we'll try to aunthenticate 
+it within form, so we need to pass data through AunthenticationForm() to validate 
+it 
+here def login_view(request):
+    if request.method=='POST':
+       form = AuthenticationForm(request=POST)
+request.POST is not first parameter we need to pass it through 
+
+9) if request.method=='POST':
+       form = AuthenticationForm(data = request=POST)
+       if form.isvalid():
+           return redirect('article_for_listsare:list')
+if form is valid pass it to article_for_listsare that is article list
+
+10) After solving some mistakes when you try to login it will login 
+to articles page.
+
+11)If you enter wrong name it will give lodin error.    
+But I can say that it's redirecting to article lists but not logging in

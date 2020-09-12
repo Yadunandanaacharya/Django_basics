@@ -1,0 +1,45 @@
+If you want to create a new user you can visit django admin web page add new user.
+
+But this is not a good way. If I want to create a new Facebook account I can't
+email FB admin that hey, create one account for me.
+
+But we need to do like allow user to create a new user in front end,
+we need to keep some kind of form, fill in the form and sign up for that account
+when they have blogs they can add in front end, we can't allow user to login
+to admin section and create blog over there.
+
+For this I'll create a new app which allows above functionalities, we can create
+template within that app
+
+So django comes with buitin authentication system
+settings->Installed apps->djano.contrib.auth
+
+I'll take this djano.contrib.auth functionality with this functionality I can
+create new user or add new user to the front end
+
+1)To do this I'll create new app for user authentication
+
+Create new app named accounts
+Next very IMPORTANT  step register that accounts app in settings
+
+2)Under accounts->urls.py
+app_name = 'accounts'
+
+urlpatterns = [
+    url(r'^signup/$',views.signup_view,name='signup')
+    ]
+3)Creating url for signing up 
+4)Register this url in main url that is inside djangoprojects
+url(r'^accounts/') : in main urls.py here we don't put $ symbol after / because
+we are gonna look something after accounts app that is "signup" thing will come
+later.
+
+url(r'^accounts/',include('accounts.urls'))
+
+5)create signup function in views.py in accounts app
+def signup_view(request):
+    return render(request,'accounts/signup.html')
+
+6) create template folder inside accounts and create signup.html file in it.    W
+where signup.html file will extend from base_layout.html file, mention block in there.
+

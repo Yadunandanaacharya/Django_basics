@@ -1,0 +1,51 @@
+In python decorators extend the behaviour of a function, then it's used
+on without modyfying function itself. They used lot in web frameworks.
+
+In 1.py file we have 2 types of decoratoes @classmethod and @staticmethod
+@classmethod will extend the behaviour  "common" named function 
+
+In smallDecorators.py file I have created my own decorators.
+1) First I've created question function which asks question.
+What did you do?
+
+Now we are gonna apply decorators to this question function which means
+we'll extend behaviour of this function, without modyfying question function.
+
+2)
+So like before asking question we say something or make sound like
+"Oh! my god" when somebody has broken the glass.
+So I'll create Oh_my_god as decorator.
+
+3) decorator is like wrapper function, which is function by itself.
+So I'll create oh_my_god function. I'll pass func to oh_my_god function.
+So this 'func' will be question function.
+
+4) Inside this oh_my_god function we'll create wrapper function.
+so wrapper function will wrap around question function.
+
+ def wrapper_function():
+        #code before function
+        print("Oh!, my God")
+        func()
+        #code after execution
+
+
+#code before function: before this function runs
+func() : firing function itself.
+That's like question() function.
+
+
+5) So when we use @oh_my_god decorator, this oh_my_god function will be called.
+So then we need to return wrapper function.
+
+6) Call function question
+
+7) Output will be:
+*Oh!, my God*
+What did you do?
+
+8) If you comment on @oh_my_god
+decorator it won't print Oh! my God.
+
+
+9) I have also created good decorator for Answer function.

@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="create-article">
+    <h2>Create an Awesome new article</h2>
+    <form class='site-form' action="/articles/create/" method="POST">
+    {{Myforms}}
+
+    </form>
+
+</div>
+
+{% endblock %}

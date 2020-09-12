@@ -1,0 +1,22 @@
+Previously with usercreationform and authenticationform I was not loggin inside
+application instead I was redirecting to article list, so in both cases like 
+signup and login now I will try to log the user in 
+
+1) In django logging function will do this job.
+from django.contrib.auth import login
+We use login funciton to login the user
+
+2) When you check this login part in django admin first of all logout.
+To login first of all we need to get who the user is so I'll create a variable
+called 'user' 
+user = form.get_user()
+get_user is builtin django, authenticationform from post request is stored in variable
+form inside login_view function so "user = form.get_user()" this will retrieve
+the user who is trying to login
+
+3) login(request,user)
+pasing request and that user who wants to login
+
+4) To test first logout from django/admin then try to login
+with accounts/login now you will be redirected to article page.
+Now if you try to go to admin, you won't get login page for admin.

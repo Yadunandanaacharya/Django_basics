@@ -1,0 +1,43 @@
+SO I need to create a button to logout when I press on that, it should send post
+request and logout function will get fired.
+So how that button will work on every page
+
+1) On every page we have base_layout.html inside signup.html we're extending base_layout
+
+2) In base_layout.html I'll create button so that button will appear
+on every page
+after h1 create post request, create it with form
+
+
+<nav>
+        <ul>
+            <li>
+                <form class="logout-link" action="{% url 'accounts:logout'" method="post">
+
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+
+]Mentionong accounts logout so when we click submit inside base_layout form, then
+it's gonna make apost request later logout_view function inside views.py function
+will be fired.
+
+3) Important thing to remember: Whenever we make a post request we need to add 
+csrf token
+
+4) Now we have submit button in base_layout form, when we click it we'll send post 
+request to accounts/logout
+
+5) Now when you'll visit web page you'll see logout page there.
+
+6) Now when you'll visit article page you'l see article page but when you 
+try to go to admin page that time you'll see login page to admin not inside of 
+admin page means admin page is already logged out.
+
+7) Go to article-> now log in to admin page -> 
+now go to article page without logging
+out in admin page->Now press logout in article page ->
+now agin enter url of admin, -> you'll see loin page of admin means 
+it's already logged out.

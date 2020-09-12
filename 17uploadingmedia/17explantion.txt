@@ -47,3 +47,5 @@ Step7: Go to article_detail add this
  in models.py I have used variable as thumbnail but and in views.py
  under article_detail you have used property as "article_details" same thing 
  you need to use in article_detail.html
+
+ If you don't upload image by default planet shaped image will be uploaded.

@@ -1,0 +1,42 @@
+User creation form.
+In django buitin form is there
+
+1)Go to views.py in accounts app.
+create new instance of form and send that instance to html template.
+Previously I have done like this sending article_lists and article_details to 
+html templates
+form = UserCreationForm()
+I have invoked UserCreationForm with form variable and I can send it to html template.
+
+
+2) Go to signup.html template to output form.
+<form action="" method="post"></form>
+create form with post.
+giving class name as site-form
+{{ form }} Outputting form
+Createting one submit button
+
+3) method post in form inside signup.html file. There are many requests like
+get and post 
+When you type url in address bar, that is a get request, you are receiving html files
+from the server.
+When we use post request sending data to the server and creating a new record in 
+the server 
+Get and post can go to same url
+
+For example we can send get request to send
+ this http://127.0.0.1:8000/accounts/signup to receive this page
+And we can also send post request to above url to send data to the server
+
+In both cases in django it'll fire signup_view function
+
+a) action="index.html"
+this means that action='/accounts/signup'
+When you click submit button in web page, where you want to submit that data to
+which url? We'll say submit to '/accounts/signup' this url.
+So on the server signup_view function will be fired, and it will recieve that data
+
+And we can also detect whether it is a post request or a get request
+
+Important: inside signup.html type property mentioned in views.py file
+{{ forms_are }}

@@ -1,0 +1,15 @@
+{% extends 'base_layout.html'  %}
+
+{% block content%}
+    <h1>Welcome to our Article list</h1>
+    <p>Here you can find many articles</p>
+    <div class="article_for_listsare">
+        {% for iarts in article_for_listsare %}
+            <div class="iarts">
+                <h2><a href="{% url 'article_for_listsare:detail' slug=iarts.slug %}">{{iarts.title}}</a></h2>
+                <p>{{ iarts.snippet }}</p>
+                <p>{{ iarts.date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}

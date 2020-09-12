@@ -1,0 +1,54 @@
+Taking users and save them into database.
+I have created form using userCreationForm. Here I will save data entered in 
+form by the user.
+
+When we make a get request, then we run function signup_view and when we make post
+request after clciking button Signup again signup_view function will be fired.
+
+So I need a way to find whether it is a get or post request.
+Get or post request comes bundled to request object to signup_view(request)
+function
+
+Under Signup.html in form section you need to use action="/accounts/signup/"
+not index.html or else you will get error.
+
+1)if request.method=='POST'
+THEN WE TAKE the data from form and I'll validate it by creating new instance 
+if request.method=='POST':
+        form = UserCreationForm(request.POST)
+request.post to access the post data.All the data come along with post data
+Here I'm passing data to the new instance of the form essentially it's kind of 
+validating data for me like 
+a)is this data okay?
+b) do passwords match
+c)user already exist or not.
+
+If it's valid save that data to the data form.
+I'll use  form.is_valid() to check validity
+returns true if it's valid else invalid.
+if form.is_valid():
+    form.save()
+if data is valid saving that data in database
+
+2) if data and user is valid, after saving them you need to display them in
+article for that I'll use redirect.
+""return redirect('article_for_listsare:list')""
+"article_for_listsare" this one I've used in articles->urls and list I've used in
+urls. Samething we need to use it here to display new article in list
+
+3) If it's a get request
+else:
+    form = UserCreationForm()
+
+4) You'll get error when you enter user details and password in the form.
+regarding csrf token: csrf verification failed.
+This token is security thing, when we send data to the server we need to send a token
+to say look this data, this request has come from our  application, it's not come
+from another application, so access this data. 
+So I'll mention {{% csrf_token %}} this in signup.html file after form section.
+
+5) go to admin section and login and check users there new user will be
+added. But status will be not admin red cross means not a super user or admin
+
+6) If normal user ramu tries to login with admin section it won't be possible for
+him because admin is yadu
