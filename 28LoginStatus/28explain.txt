@@ -1,0 +1,29 @@
+Now I can login, signup, post articles.
+But when I'll visit any web page I need to show whether I'm logged in
+or logged out.  
+Like if I'm logged in then web page should show logout option else
+when I'm logged out then web page should show login option.
+
+Login and Signup button.
+
+1) Open root templates folder-> base_layout.html
+In that we have li tag inside that form is there which is used for login which shows
+login button to everybody.
+but we only want to show this to people who are logged in  or people who
+are aunthenticated.
+
+2) We can do 1) by template tag with if statement.
+So if the user is aunthenticated then it shows form with login button
+if they are not aunthenticated then it shows content of else 
+
+login link: {% else %}
+            <li><a href="{% url 'accounts:login' %}"></a></li>
+            
+
+3) Now run server you'll see login and signup optio in web page.
+You see that option when you logoufrom create page
+
+4) Create another option create a article.
+
+
+ErROR: logout and NEW article buttonS ARE not DISPLAYING

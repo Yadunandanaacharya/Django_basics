@@ -1,0 +1,128 @@
+First I did like this under main urls.py
+
+"url(r'^articleapp/',include('articleapp.urls')),"
+So got error: 
+########################################
+Page not found (404)
+Request Method:	GET
+Request URL:	http://127.0.0.1:8000/
+Using the URLconf defined in articlepro.urls, Django tried these URL patterns, in this order:
+
+^articleapp/
+admin/
+########################################
+Later remove contents from ''
+
+::url('',include('articleapp.urls')),
+Now contents will be displayed.
+
+2) USING TEMPLATES:
+got to settings-> templates
+
+3) Using templates inside views.py:
+Due to spelling mistake I got error while giving path in views.py for 
+home.html.
+BEFORE:
+def home(request):
+    return render(request,'aricleapp/home.html')
+
+AFTER: CORRECTED ONE:
+def home(request):
+    return render(request,'articleapp/home.html')
+
+4)
+But home should be there in main template. Do this later.
+home.html is dynamic content. Do as step3.
+
+Top 10 imdb rated movie stories.
+->https://edition.cnn.com/articles <-
+ For reference.
+ Top 10 imdb rated movies and link to trailer.
+ Top 10 laptops with their features and link to amazon.
+ In home page above ehtings and Login and Signup buttons.
+
+ When you press on Top 10 movies it should go to login page.
+ 
+Date: 16/9/20
+
+ 5) Changed home.html
+  a) Under style tag: {box-sizing:border-box} this will be used to
+  put all Nav contents in navbar.
+  If you change to content-box appearance of box for Home about contactus 
+  box will change.
+  b) With below code:
+    body {
+        margin: 78;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+    When you give margin:0 there won't be any gap in top box that is navbar.
+    So that nav-bar looks clean.
+
+ c) In the CSS, a class selector is a name preceded by a full stop (“.”) 
+    and an ID selector is a name preceded by a hash character (“#”).
+    For nav tag I have used '.' here,
+    
+    You can use the same class on multiple elements.
+    You can use multiple classes on the same element. Denoted by .
+    But ids are unique.
+    or header and footer you can use id denoted by #
+
+    To check difference change <div class="topnav"> to <div id="topnav">
+    More changes will happen in web page.
+    Class can be applied to multiple things.
+
+    <a href="#about">About</a> Used ID which is Unique for about.
+
+ d) Different property for navbar
+ .topnav {
+  overflow:-moz-hidden-unscrollable;
+  background-color: #4b1515;
+    }
+
+You need to keep overflow to hidden for better visualization.
+.topnav is class property applied mainly to div tag
+
+e) 
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <div class="login-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Username" name="username">
+      <input type="text" placeholder="Password" name="psw">
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+These all div tags comes under class topnav whatver I'll see in top line
+where home about contact us above black background.
+For about used id, een or contact and home.
+
+f) Even anchor tag has many properties:
+a.hover
+
+g) @media screen and (max-width: 660px) {
+  .topnav .login-container {
+    float: none;
+  }
+  With above code you can increase size of navbar where home about present.
+  If you comment on this code then you will see home about contacts in separate
+  tabs
+  With half of the page covered with home in single full tab, like that about
+  and contact.
+
+
+h)
+.topnav .login-container button:hover {
+  background-color: rgb(228, 238, 228);
+}
+Used login-container class inside another topnav class.
+
+i) For home button:
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+
+
+17/9/20

@@ -1,0 +1,77 @@
+IMPORTANT: Every time YOU CREATE A NEW FOLDER THAT TIME CLOSE ALL PREVIOUS FILES.
+oNCE i HAVE TYPED SOME LINES IN 25 FOLDER AND TYPED SOMETHING IN 27 FOLDER FILES
+sO I WAS NOT GETTING REQURIRED OUTPUT.
+
+
+sAVING article to the database
+For each article I have not mentioned author name of each article and 
+I'm not even storing username in the database
+
+In themodel we have 5 tags, but I'm not storing author, saving information 
+where who's logged in who's created this article so that we can output 
+that data associated with article, Authors and Users.
+
+One way to link an article with Author is with "Foreign Key"
+
+Foreign Key is a way to associate  record from one model example in our case article
+model, with a record from another model in our case user model.
+So we will associate article with User
+
+1) open models.py add 
+from django.contrib.auth.models import User
+importing user
+then I'll associate "User" model with "author" field.
+Now author field will be user
+
+So we need to makemigrations after doing changes
+but before that I'll delete all articles because None of them have Author
+information.
+Then I'll do makemigrations
+
+This Foreign key is not working giving error about
+null constraint.
+
+
+2)Next inside views.py in articles you need to save user details in database
+storing it in variable called instance
+Next attach author to this instance 
+
+3) We've access to user with request, whenever user enter details article_create
+function will be fired
+
+I couldn't find bug: While running makemigrations and migrate I got error 
+regarding NULL constraint, I tried with many ways to solve it.
+But finally I copied djangoprojects from 26modelforms folder then copied
+author with Foreign key that time it exceuted without any error.
+May be there was some bugs with Migrations folder.
+
+4)Now after doing makemigrations and migrate 
+author = models.ForeignKey(User, default=1,verbose_name='Author', on_delete=models.SET_DEFAULT)
+this above command I found in sentdex you tube video for using ForeignKey in django.
+In earlier version less than 2 you don't need to define on_delete
+but in latest versions you need to update on_delete.
+Then runserver and go too admin page in that Author block will be there.
+
+
+5) Now I don't want to give dropdown list for author like when you press on 
+Author list of authors names will come. But I want to do like if one new user creates 
+article named ram his name should be there in author
+
+6) go to view file inside article
+When we get post request we'll get data from form and save it to the database.
+For saving data in database we were using command form.save()
+a)instance  = form.save(commit=False)
+Storing it in variable called instance
+Next attach author to that instance
+b)instance.author = request.user
+In instance.author we'll save user from request
+c)instance.save()
+saving to the database.
+
+
+7) I've created new account for "Ramanna" user and created article nature, but in
+that page /articles/create you won't see author block you need to go to 
+/admin page to see author name.
+
+Now when you'll go to admin page and check Nature slug article its author will
+be displayed as Ramanna.    

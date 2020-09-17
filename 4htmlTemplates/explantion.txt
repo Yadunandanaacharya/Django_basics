@@ -23,7 +23,7 @@ Reference: https://www.webforefront.com/django/regexpdjangourls.html
 strings prefixed with r'' (a.k.a. raw strings)
 
 Many conditions are there before using r'^about/' and r'^about/index', there
-is difference in matching between these two pattersn    
+is difference in matching between these two patterns    
 
 
 from django.urls import re_path
@@ -55,5 +55,6 @@ if you do like above django wil look for html files inside templates directory
 inside settings
 
 Got this error:
-The view djangoprojects.views.homepage didn't return an HttpResponse object. It returned None instead.
+The view djangoprojects.views.homepage didn't return an HttpResponse object. 
+It returned None instead.
 When I didn't use return in homepage function in views.py file.

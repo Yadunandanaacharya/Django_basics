@@ -1,0 +1,64 @@
+
+Whatever I typed it's deleeted so whatever you tyep jsut commit to
+github after 30 minutes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add csrf_token to the article_create.html
+
+So when you enter details and hit submit button again we're sending data to the
+articles/create. Same url we type in browser to get request
+
+Change url pattern article_create.html file
+
+15)
+We have thumbanil where we will upload files so in form we need to mention
+encryption type:enctype="multipart/form-data"
+
+Above is to encoded form data uploaded in thumbanil
+<form class='site-form' action="{% url 'article_for_listsare:create' %}" method="POST" enctype="multipart/form-data">
+
+IMPORTANT: WHENVER WE HAVE UPLOADING THINGS WE NEED TO HAVE enctype
+
+16) SO when we get request :
+if request.method == 'POST':
+        form = forms.CreateArticle(request.POST)
+        inside article_create function inside views.py under articles
+
+Above code means it's validating against that model form.
+
+17) Another thing we'll pass is request.FILES because when we upload files
+they don't come along with post object, they will come with separate object 
+called files on the request object itself.
+
+18) Next check is that form valid
+if form.is_valid()
+
+from django.shortcuts import render, redirect 
+imported redirect 
+
+
+19) When we fill details and press submit button we're making post request we'll pas that data into form instance
+
+20) Check in browser by enterring some details there it works, I have not created articles but checked form is valid
+after entering details when you press create butto if it goes to articles list page then your code is working fine.

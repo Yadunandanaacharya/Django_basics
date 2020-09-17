@@ -1,0 +1,24 @@
+In 28th folder New Article and Logout options are not working.
+
+To redirect to home page we need to change root url
+Inside djangoprojects 
+
+We will change  urls for url(r'^$', views.homepage), in urls.py  to 
+Article_list 
+
+Importing article function from views
+from articles import views as article_views
+
+I have mentioned article_views because or else django will get confused with 
+views
+
+In browser when you go to root url like 
+128:0.0.1/  / means home then article_list function from article/views should
+get fired.
+
+2) Next in base_layout.html file 
+ <h1><a href="{% url 'home' %}"> changing like this 
+ so that where in urls.py under djangoprojects I have given name as "home"
+ for article_list that is url(r'^$', article_views.article_list, name='home'),
+
+ 
