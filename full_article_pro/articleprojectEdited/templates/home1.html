@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple website</title>
+    <link rel="stylesheet" type='text/css'  href="css/style.css">
+</head>
+<body> 
+    <header> 
+        <div class="main">
+            <div class="logo1">
+                <img src="logo.jpg" alt="">
+            </div>
+            <ul class="homes">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="logins"><a href="#">Login</a></li>
+                <li class="logins"><a href="#">Signup</a></li>
+            </ul>
+        </div>
+        <!-- <div class="authenticate">
+            <ul class="logins">
+                <li ><a href="#">Login</a></li>
+                <li ><a href="#">Signup</a></li>
+            </ul>
+        </div> -->
+        <div class="title">
+            <h1>Top Movies list</h1>
+        </div>
+        <div class="button">
+            <a class='img' href="{% url 'home' %}"> Movie Lists</a>
+            <!-- <a class='img' href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}" alt="logo"></a> -->
+            <a href="#" class="btn">Song Lists</a>
+        </div>
+
+        
+    </header>
+</body>
+</html>

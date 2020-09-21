@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+
+
+{% block content %}
+    <style>
+        .my_articles{
+        background-color:green;
+        }
+    </style>
+    <h1>List of articles</h1>
+    <h1>List of articles</h1>
+    <h1>List of articles</h1>
+    <h1>List of articles</h1>
+    <div class="my_articles">
+    {% for i in my_articles %}
+    <div class="i">
+    <h2><a href="{% url 'article_lists:details' slug=i.slug %}">{{i.title}}</a></h2>
+    <p>{{slug}}</p>
+    <p>{{i.snippet}}</p>
+   <p>{{i.date}}</p> 
+</div></div>
+    {% endfor %}
+
+    {% endblock %}

@@ -1,0 +1,74 @@
+
+
+1)ul{
+    float:right;
+    list-style-type: none;
+    margin: 20px;
+}
+With this home about contact will visible in right side of web page with
+home
+about
+contact
+like above list format.
+With margin 20px some gap between home text url bar of webpage will be there,
+
+2)ul li{
+    display: inline-block;
+}
+selecting li tag inside ul by : "ul li"
+With above code :
+ home about contact will look in single line.
+
+
+3) Selecting a tag inside li inside ul by :
+ul li a 
+text-decoration: none means below home line won't be there
+
+
+4) ul li a:hover{
+    background-color: #fff;
+    color: #000;
+}
+When you take mouse cursor on home text background ground color will become white
+and text color will become black.
+
+5) I've put logo
+now reduce the size of the logo
+
+6) setting max-width of main 
+
+7) represeneting class by .
+now "Top Movies list" make this look in center.
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
+
+8) changing color of h1
+.title h1{
+    color: #fff;
+    font-size: 50px;
+}
+
+9) Using overlay upon background image: by doing this your image will look
+transparent but your texts will appear in very good way like home about contact
+will ook very good.
+Do this inside header
+
+<div class="button">
+            <a href="#" class="btn">Movie Lists</a>
+            <a href="#" class="btn">Songs Lists</a>
+        </div>
+        Now this should look under Top Movies list
+But they are appearing in top.
+So copy code of title 
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
+To make it look under Top Movie Lists
+top: 60%;
