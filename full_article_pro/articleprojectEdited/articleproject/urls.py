@@ -8,8 +8,8 @@ from django.conf import settings
 from articles import views as article_views
 
 urlpatterns = [
-    # path('',views.home1, name='home1'),
-    path('',article_views.article_list, name='home'),
+    path('',views.home, name='home'),
+    # path('',article_views.article_list, name='home'),
     path('about/',views.about, name = 'about'),
     path('admin/', admin.site.urls),
     path('accounts/',include('accounts.urls')),

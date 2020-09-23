@@ -1,3 +1,4 @@
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +8,10 @@
 </head>
 <body>
     <h1>Welcome Home hurrey</h1>
+    <header class="wrapper">
+        <h1><a class='img' href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}" alt="logo"> Movie Lists</a></h1>
+        <h1><a class='img' href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}" alt="logo"></a></h1>
+        
+        </header>
 </body>
 </html>

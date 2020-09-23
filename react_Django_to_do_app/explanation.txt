@@ -1,0 +1,42 @@
+*) frontend->public->index.html 
+Used bootstrap 
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+*) Setting frontend path and 
+  "npm start"  to exceute react app.
+
+*) background: linear-gradient(90deg, rgba(54, 217, 182,1) 0%, rgba(32,156,132,1) 43%, rgba(0,212,255,1) 100%);
+With linear-gradient you can make web page some what transparent, like
+you want to make text look good with background image used.
+
+*) Added shadow for task container which will be 
+    displayed in web page.
+    # for id, . for class
+    From top and bottom gap:
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+*) The justify-content property aligns the 
+flexible container's items when the items do not use all available space on the main-axis (horizontally).
+flex-start:
+|abc                    |
+flex-end:
+|                    abc|
+space-between:
+|a b c                  |
+
+*) align-items:
+https://www.w3schools.com/CSSref/playit.asp?filename=playcss_align-items&preval=stretch
+
+*) With From-wrapper styling form.
+After giving padding:40px;
+I got gap in whole submit box.
+
+*) Added button colors,
+In order to inline everything:
+    .flex-wrapper{
+    display: flex;
+    }
